@@ -1,0 +1,9 @@
+services:
+  frontend:
+    image: tigershroff/web-app:frontend-v2
+    ports:
+      - 3000:80
+  backend:
+    image: tigershroff/web-app:backend
+    ports:
+      - 9090:8080
