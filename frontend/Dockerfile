@@ -1,9 +1,10 @@
-FROM node AS build
-WORKDIR /app
+FROM node:21-alpine as stage1
+WORKDIR /frontend
 COPY . .
-RUN npm install
+RUN  npm install
 RUN npm run build
 
+
 FROM nginx
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
+COPY --from=stage1 /frontend/build /usr/share/nginx/html/
+EXPOSE 3000
