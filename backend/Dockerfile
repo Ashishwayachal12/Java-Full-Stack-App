@@ -1,10 +1,10 @@
-FROM maven AS build
-WORKDIR /app
+FROM node:21-alpine as stage1
+WORKDIR /frontend
 COPY . .
-RUN mvn package
-RUN mv target/*.jar App.jar
+RUN  npm install
+RUN npm run build
 
-FROM eclipse-temurin:25-alpine
-WORKDIR /package
-COPY --from=build /app/App.jar .
-ENTRYPOINT ["java", "-jar", "App.jar"]
+
+FROM nginx
+COPY --from=stage1 /frontend/build /usr/share/nginx/html/
+EXPOSE 3000
