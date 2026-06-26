@@ -12,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         // Allow frontend requests from 'http://localhost:3000'
         registry.addMapping("/api/**")  // Match all /api endpoints
-                .allowedOrigins("http://16.170.206.122:3000")  // Allow only frontend on port 3000
+                .allowedOrigins("http://13.60.229.141:3000")  // Allow only frontend on port 3000
                 .allowedMethods("GET", "POST", "PUT", "DELETE")  // Allow necessary HTTP methods
                 .allowCredentials(true);  // Allow sending credentials (cookies, authentication)
     }
