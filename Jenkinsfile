@@ -48,11 +48,11 @@ pipeline{
                 '''
             }
         }
-        // stage("clean docker"){
-        //     steps{
-        //         sh 'echo y | docker system prune -a'
-        //     }
-        // }
+        stage("clean docker"){
+            steps{
+                sh 'echo y | docker system prune -a'
+            }
+        }
         
         }
     }
