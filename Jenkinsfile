@@ -2,12 +2,9 @@ pipeline{
     agent {
         label 'test-server'
     }
-
-    
     environment{
         REPOSITORY = "ashishwayachal12/java-full-stack"
     }
-    
     stages{
         stage("checkout"){
             steps{
